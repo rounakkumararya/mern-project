@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function OAuth() {
   const dispatch = useDispatch();
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const handleGoogleClick = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -29,13 +29,13 @@ export default function OAuth() {
       dispatch(signInSuccess(data));
       navigate("/");
     } catch (error) {
-      console.log(error);
+      console.log("could not sign in with google", error);
     }
   };
   return (
     <button
-      type="button"
       onClick={handleGoogleClick}
+      type="button"
       className="bg-sky-800 text-white p-3 rounded-lg uppercase hover:bg-sky-950"
     >
       Continue with google
